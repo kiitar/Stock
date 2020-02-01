@@ -11,7 +11,7 @@
 // export default App;
 
 import React, {Component} from 'react';
-import {Button, Text, View} from 'react-native';
+import {Button, Text, View, Alert} from 'react-native';
 import {RNCamera} from 'react-native-camera';
 
 class App extends Component {
@@ -29,14 +29,20 @@ class App extends Component {
   }
 
   onBarCodeRead(scanResult) {
-    console.warn(scanResult.type);
-    console.warn(scanResult.data);
+    // console.warn(scanResult.type);
+    // console.warn(scanResult.data);
+
     if (scanResult.data != null) {
       if (!this.barcodeCodes.includes(scanResult.data)) {
         this.barcodeCodes.push(scanResult.data);
-        console.warn('onBarCodeRead call');
+        Alert.alert(
+          'Barcode value is' + scanResult.data,
+          'Barcode type is' + scanResult.type,
+        );
+        // console.warn('onBarCodeRead call');
       }
     }
+
     return;
   }
 
