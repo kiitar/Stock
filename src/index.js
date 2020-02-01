@@ -36,8 +36,8 @@ class App extends Component {
       if (!this.barcodeCodes.includes(scanResult.data)) {
         this.barcodeCodes.push(scanResult.data);
         Alert.alert(
-          'Barcode value is' + scanResult.data,
-          'Barcode type is' + scanResult.type,
+          `Barcode value is : ${scanResult.data}`,
+          `Barcode type is : ${scanResult.type}`,
         );
         // console.warn('onBarCodeRead call');
       }
